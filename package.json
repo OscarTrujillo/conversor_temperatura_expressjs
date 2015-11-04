@@ -1,7 +1,7 @@
 {
   "name": "hello",
   "version": "0.0.0",
-  "main": "hello.js",
+  "main": "index.js",
   "dependencies": {
     "express": "*",
     "ejs": "*",
