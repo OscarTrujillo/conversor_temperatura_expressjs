@@ -13,19 +13,55 @@ function Medida(num,cad) {
 }
 
 function Temperatura (num, cad) {
+var m;
+  this.inicializa=function(original){
+		var temp = original;
+	  //var regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcC])/;
+	  var regexp = /([+-]?\d+(?:\.\d*)?(?:\s*[e]\d+)?)\s*([fFcC])/;
+	  m = temp.match(regexp);
+	}
+
+
+
+  this.calc=function(){
+
+    if (m) {
+
+      var num = m[1];
+      var type = m[2];
+      var resultado;
+
+
+
+      ///
+          if (type == 'c' || type == 'C') {
+              resultado=this.c2f(num);
+          }
+          else{
+            resultado=this.f2c(num);
+
+          }
+
+        }
+        else {
+            resultado = "ERROR! Try something like '-4.2C' instead";
+        }
+        return resultado
+      }
+
+
     Medida.call(this, num, cad);
 
     var result;
-    var number = parseFloat(this.getn());
 
    ///
-   this.c2f=function(){
+   this.c2f=function(number){
       result = (number * 9/5)+32;
       result = result.toFixed(1)+" Farenheit"
       return result
     }
 
-    this.f2c=function(){
+    this.f2c=function(number){
       result = (number - 32)*5/9;
       result = result.toFixed(1)+" Celsius"
       return result
@@ -77,3 +113,5 @@ var m;
 }
 
 }
+
+module.exports = Temperatura;
