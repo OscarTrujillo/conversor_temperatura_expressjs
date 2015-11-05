@@ -1,9 +1,0 @@
-<!doctype html>
-<html>
-  <head>
-   <%- include head.ejs %>
-  </head>
-  <body>
-    <%- cuerpo %>
-  </body>
-</html>
